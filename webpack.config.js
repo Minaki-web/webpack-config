@@ -10,13 +10,15 @@ let mode = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 module.exports = {
   mode: mode,
   devtool: 'source-map',
+  target: ['web', 'es5'],
 
   entry: {
-    main: './src/js/index.js',
+    main: './src/js/main.js',
     about: './src/js/about.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js'
   },
 
   devServer: {
@@ -62,12 +64,12 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: 'body',
       chunks: ['main'],
       template: './src/pages/index.html'
     }),
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: 'body',
       filename: 'about/index.html',
       chunks: ['about'],
       template: './src/pages/about.html'

@@ -1,5 +1,7 @@
-import $ from 'jquery'
+import '../scss/style.scss'
 
-$('.about-target').html('Hello, JQuery from about page!')
+import('jquery').then(({ default: $ }) => {
+  $('.about-target').html('Hello, JQuery from about page!')
 
-console.log(`About Loaded`)
+  console.log(`About Loaded`)
+})
