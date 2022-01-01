@@ -1,0 +1,11 @@
+@use '../helpers' as h;
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: h.rem(16);
+  color: var(--primary-color);
+}

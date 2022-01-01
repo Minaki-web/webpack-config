@@ -1,0 +1,23 @@
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    content: '';
+    float: left;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  & > :first-child {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
