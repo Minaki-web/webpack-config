@@ -2,7 +2,8 @@
   "scripts": {
     "start": "webpack serve",
     "watch": "webpack -w",
-    "build": "webpack"
+    "build": "webpack --mode=production",
+    "build-dev": "webpack"
   },
   "devDependencies": {
     "webpack": "^5.65.0",
