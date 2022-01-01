@@ -48,9 +48,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [
-                  ['postcss-sort-media-queries', { sort: 'desktop-first' }]
-                ]
+                plugins: [['postcss-sort-media-queries', { sort: 'desktop-first' }]]
               }
             }
           },
@@ -81,5 +79,13 @@ module.exports = {
 
   resolve: {
     extensions: ['.ts', '.js']
+  },
+
+  optimization: {
+    chunkIds: 'named',
+    splitChunks: {
+      chunks: 'all',
+      name: 'vendor'
+    }
   }
 }
